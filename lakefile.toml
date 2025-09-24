@@ -1,0 +1,10 @@
+name = "start-lean"
+version = "0.1.0"
+defaultTargets = ["start-lean"]
+
+[[lean_lib]]
+name = "StartLean"
+
+[[lean_exe]]
+name = "start-lean"
+root = "Main"
