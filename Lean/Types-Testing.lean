@@ -21,7 +21,7 @@ def β : Type := Bool
 
 #check 5 + true
 
-universe u
+universe u v
 
 def F (a : Type u) : Type u := Prod a a
 #check F
@@ -41,5 +41,22 @@ def myf (n : Nat) : String := toString n
 
 def foo := let a := Nat; fun x : a => x + 2
 #check foo
+
+
+
+def cons (α : Type) (a : α) (as : List α) : List α := List.cons a as
+#check cons
+#check List.cons
+#check List.nil
+
+
+def f (α : Type u) (β : α -> Type v) (a : α) (b : β a) : (a : α) × β a := ⟨a, b⟩
+#check f
+
+def h1 (x : Nat) : Nat := (f Type (fun α => α) Nat x).2
+#check h1
+#eval h1 7
+
+
 
 end TypesTesting
