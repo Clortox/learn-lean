@@ -7,6 +7,4 @@ theorem add_zero (n : Nat) : n + 0 = n := by
     | zero => rfl
     | succ k ih => simp
 
-
-
 end Dojo
