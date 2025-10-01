@@ -1,4 +1,4 @@
-import Mathlib
+--import Mathlib
 
 namespace TypesTesting
 
@@ -19,7 +19,7 @@ def β : Type := Bool
 #check Prod
 #check max
 
-#check 5 + true
+-- #check 5 + true
 
 universe u v
 

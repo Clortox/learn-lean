@@ -10,6 +10,7 @@ structure Proof (p : Prop) : Type where proof : p
 
 #check And
 #check Prop
+#check Proof
 
 variable (p q r : Prop)
 
@@ -23,12 +24,20 @@ variable (p q r : Prop)
 axiom modus_ponens (p q : Prop) :
   Proof (p → q) -> Proof p -> Proof q
 
+axiom implies_intro (p q : Prop) :
+  (Proof p -> Proof q) -> Proof (Implies p q)
+
 #check fun hp: p => fun hq : q => hp
 
 theorem t1 : p → q → p :=
   fun hp: p => fun hq : q => hp
 
 #print t1
+
+theorem t1_short : p -> q -> p :=
+  fun hp hq => hp
+
+#print t1_short
 
 theorem t1_1 : p → q → p :=
   fun hp : p =>
@@ -47,6 +56,7 @@ theorem ex : 1 = 0 :=
   False.elim unsound
 
 #check ex
+
 
 
 
